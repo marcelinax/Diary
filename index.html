@@ -8,5 +8,29 @@
     <script src="./scripts/script.js" defer></script>
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
-  <body> </body>
+  <body>
+    <div class="container">
+      <button id="previous">previous</button>
+      <div class="diary">
+        <div class="first-page">
+          <input type="text" class="title" />
+          <textarea class="content"></textarea>
+          <p class="date"></p>
+          <span class="letters"></span>
+          <button class="add-page">Add</button>
+          <span id="first-page-index"></span>
+        </div>
+        <div class="second-page">
+          <input type="text" class="title" />
+          <textarea class="content"></textarea>
+          <p class="date"></p>
+          <span class="letters"></span>
+          <button class="add-page">Add</button>
+          <span id="second-page-index"></span>
+        </div>
+      </div>
+
+      <button id="next">next</button>
+    </div>
+  </body>
 </html>

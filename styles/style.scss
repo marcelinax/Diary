@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .diary {
+    width: 1000px;
+    height: 700px;
+
+    display: flex;
+    border: 1px solid black;
+    .written-sheet,
+    .empty-sheet {
+      display: flex;
+      height: 700px;
+      width: 500px;
+      flex-direction: column;
+    }
+    .written-sheet {
+      border-right: 1px solid black;
+      background-color: aqua;
+    }
+    .empty-sheet {
+      justify-content: center;
+      align-items: center;
+      background-color: beige;
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        padding: 1rem;
+        img {
+        }
+      }
+    }
+  }
+}
