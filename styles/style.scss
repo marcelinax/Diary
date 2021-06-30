@@ -1,6 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+
+@keyframes pageShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes pageHide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
+  font-family: "Dancing Script", cursive;
 }
 
 .container {
@@ -13,33 +33,106 @@
     height: 700px;
 
     display: flex;
-    border: 1px solid black;
-    .written-sheet,
-    .empty-sheet {
+  }
+  .first-page,
+  .second-page {
+    box-shadow: 0 0 15px rgba(#000, 0.2);
+    display: flex;
+    flex-direction: column;
+    min-width: calc(500px - 6rem);
+    height: calc(100% - 6rem);
+    background-color: #ffcad4;
+    border-radius: 5px;
+    padding: 3rem;
+    position: relative;
+    &.hide {
+      animation: 0.5s pageHide;
+      animation-fill-mode: forwards;
+    }
+    &.show {
+      animation: 0.5s pageShow;
+      animation-fill-mode: forwards;
+    }
+    input,
+    textarea {
+      outline: none;
+      border: none;
+      background-color: transparent;
+      width: 100%;
+      color: #1a1a1a;
+    }
+    input {
+      font-weight: 700;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    textarea {
+      resize: none;
+      height: 100%;
+      font-size: 1.7rem;
+    }
+    .date {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 14px;
+    }
+    .letters {
+      width: 100%;
       display: flex;
-      height: 700px;
-      width: 500px;
-      flex-direction: column;
-    }
-    .written-sheet {
-      border-right: 1px solid black;
-      background-color: aqua;
-    }
-    .empty-sheet {
+      opacity: 0.5;
       justify-content: center;
-      align-items: center;
-      background-color: beige;
 
-      button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100px;
-        height: 100px;
-        padding: 1rem;
-        img {
-        }
+      font-size: 13px;
+    }
+    #first-page-index {
+      position: absolute;
+      bottom: 1rem;
+      left: 2rem;
+    }
+    #second-page-index {
+      position: absolute;
+      bottom: 1rem;
+      right: 2rem;
+    }
+    .add-page {
+      outline: none;
+      border: none;
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      transition: 0.5s all;
+      cursor: pointer;
+      img {
+        width: 100%;
+        height: 100%;
       }
+      &:hover {
+        transform: translate(-50%, -50%) scale(0.9);
+      }
+    }
+  }
+  .page-btn {
+    width: 40px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    margin: 0 20px;
+    transition: 0.5s all;
+
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    &:hover {
+      transform: scale(0.9);
     }
   }
 }

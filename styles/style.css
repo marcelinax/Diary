@@ -1,6 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+@-webkit-keyframes pageShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes pageShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes pageHide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes pageHide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
+  font-family: "Dancing Script", cursive;
 }
 
 .container {
@@ -22,49 +59,152 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: 1px solid black;
 }
 
-.container .diary .written-sheet,
-.container .diary .empty-sheet {
+.container .first-page,
+.container .second-page {
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 700px;
-  width: 500px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-width: calc(500px - 6rem);
+  height: calc(100% - 6rem);
+  background-color: #ffcad4;
+  border-radius: 5px;
+  padding: 3rem;
+  position: relative;
 }
 
-.container .diary .written-sheet {
-  border-right: 1px solid black;
-  background-color: aqua;
+.container .first-page.hide,
+.container .second-page.hide {
+  -webkit-animation: 0.5s pageHide;
+          animation: 0.5s pageHide;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
-.container .diary .empty-sheet {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: beige;
+.container .first-page.show,
+.container .second-page.show {
+  -webkit-animation: 0.5s pageShow;
+          animation: 0.5s pageShow;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
-.container .diary .empty-sheet button {
+.container .first-page input,
+.container .first-page textarea,
+.container .second-page input,
+.container .second-page textarea {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  color: #1a1a1a;
+}
+
+.container .first-page input,
+.container .second-page input {
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.container .first-page textarea,
+.container .second-page textarea {
+  resize: none;
+  height: 100%;
+  font-size: 1.7rem;
+}
+
+.container .first-page .date,
+.container .second-page .date {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 14px;
+}
+
+.container .first-page .letters,
+.container .second-page .letters {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  opacity: 0.5;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100px;
-  height: 100px;
-  padding: 1rem;
+  font-size: 13px;
+}
+
+.container .first-page #first-page-index,
+.container .second-page #first-page-index {
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+}
+
+.container .first-page #second-page-index,
+.container .second-page #second-page-index {
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+}
+
+.container .first-page .add-page,
+.container .second-page .add-page {
+  outline: none;
+  border: none;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: transparent;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  cursor: pointer;
+}
+
+.container .first-page .add-page img,
+.container .second-page .add-page img {
+  width: 100%;
+  height: 100%;
+}
+
+.container .first-page .add-page:hover,
+.container .second-page .add-page:hover {
+  -webkit-transform: translate(-50%, -50%) scale(0.9);
+          transform: translate(-50%, -50%) scale(0.9);
+}
+
+.container .page-btn {
+  width: 40px;
+  height: 40px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  margin: 0 20px;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  cursor: pointer;
+}
+
+.container .page-btn img {
+  width: 100%;
+  height: 100%;
+}
+
+.container .page-btn:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 /*# sourceMappingURL=style.css.map */

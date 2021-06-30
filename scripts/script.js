@@ -13,7 +13,7 @@ class Page {
     buttonEl.style.display = "none";
     titleEl.value = this.title;
     contentEl.value = this.content;
-    dateEl.innerHTML = this.date;
+    dateEl.innerHTML = moment(this.date).format("DD.MM.YYYY");
     lettersEl.innerHTML = `${this.content.length}/500`;
   }
 }
@@ -124,11 +124,14 @@ class UI {
     lettersEl: document.querySelector(".second-page .letters"),
     buttonEl: document.querySelector(".second-page .add-page"),
   };
+  firstPage = document.querySelector(".first-page");
+  secondPage = document.querySelector(".second-page");
   previousBtn = document.getElementById("previous");
   nextBtn = document.getElementById("next");
   firstPageIndex = document.getElementById("first-page-index");
   secondPageIndex = document.getElementById("second-page-index");
   diary = new Diary();
+  timeout = 0;
   constructor() {
     this.initAddPageBtn();
     this.initChangePreviousPage();
@@ -138,10 +141,22 @@ class UI {
     this.renderCurrent();
   }
   renderCurrent() {
-    this.diary.renderCurrentPages(
-      this.firstPageElements,
-      this.secondPageElements
-    );
+    clearTimeout(this.timeout);
+    this.firstPage.classList.remove("show");
+    this.secondPage.classList.remove("show");
+    this.firstPage.classList.add("hide");
+    this.secondPage.classList.add("hide");
+    this.timeout = setTimeout(() => {
+      this.firstPage.classList.remove("hide");
+      this.secondPage.classList.remove("hide");
+      this.firstPage.classList.add("show");
+      this.secondPage.classList.add("show");
+      this.diary.renderCurrentPages(
+        this.firstPageElements,
+        this.secondPageElements
+      );
+    }, 500);
+
     this.firstPageIndex.innerHTML = this.diary.currentPageIndex + 1;
     this.secondPageIndex.innerHTML = this.diary.currentPageIndex + 2;
   }

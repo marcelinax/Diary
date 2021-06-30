@@ -5,32 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Diary</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="./scripts/script.js" defer></script>
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
     <div class="container">
-      <button id="previous">previous</button>
+      <button class="page-btn" id="previous"
+        ><img src="./assets/angle-left-solid.svg" alt=""
+      /></button>
       <div class="diary">
         <div class="first-page">
-          <input type="text" class="title" />
-          <textarea class="content"></textarea>
+          <input
+            type="text"
+            class="title"
+            maxlength="20"
+            placeholder="Title..."
+          />
+          <textarea class="content" placeholder="Content..."></textarea>
           <p class="date"></p>
           <span class="letters"></span>
-          <button class="add-page">Add</button>
+          <button class="add-page">
+            <img src="./assets/plus-solid.svg" alt="" />
+          </button>
           <span id="first-page-index"></span>
         </div>
         <div class="second-page">
-          <input type="text" class="title" />
-          <textarea class="content"></textarea>
+          <input
+            type="text"
+            class="title"
+            maxlength="20"
+            placeholder="Title..."
+          />
+          <textarea class="content" placeholder="Content..."></textarea>
           <p class="date"></p>
           <span class="letters"></span>
-          <button class="add-page">Add</button>
+          <button class="add-page">
+            <img src="./assets/plus-solid.svg" alt="" />
+          </button>
           <span id="second-page-index"></span>
         </div>
       </div>
 
-      <button id="next">next</button>
+      <button class="page-btn" id="next"
+        ><img src="./assets/angle-right-solid.svg" alt=""
+      /></button>
     </div>
   </body>
 </html>
